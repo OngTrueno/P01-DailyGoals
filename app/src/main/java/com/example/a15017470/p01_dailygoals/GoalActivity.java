@@ -3,6 +3,8 @@ package com.example.a15017470.p01_dailygoals;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class GoalActivity extends AppCompatActivity {
@@ -11,6 +13,8 @@ public class GoalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_goal);
+
+        Button btnDone = (Button)findViewById(R.id.button2);
 
 // Get the intent so as to get the "things" inside the intent
         Intent i = getIntent();
@@ -29,6 +33,12 @@ public class GoalActivity extends AppCompatActivity {
         tv9.setText("Arrive on time so as not to miss important part of the lesson : " + selectedRadioValue2);
         tv10.setText("Attempt the problem myself : " + selectedRadioValue3);
         tv11.setText("Reflection : " + info[0]);
-    }
 
+        btnDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GoalActivity.super.finish();
+            }
+        });
+    }
 }
